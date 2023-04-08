@@ -1,0 +1,978 @@
+SceneTreeNodePool =
+{
+	Node "0" =
+	{
+		Type = "Target"
+		NodeName = "LoadingScreen"
+		Bypass = 1
+		ColorTargetReferences =
+		[
+			17 
+		]
+		BypassTargetReference = 1
+	}
+	Node "1" =
+	{
+		Type = "Target"
+		NodeName = "FullScreenDistort"
+		Bypass = 1
+		ColorTargetReferences =
+		[
+			17 
+		]
+		BypassTargetReference = 2
+		ParentNodeReferences =
+		[
+			0 
+		]
+		MaterialReference = 13
+	}
+	Node "2" =
+	{
+		Type = "Target"
+		NodeName = "PostProcess"
+		MaterialReference = 9
+		ColorTargetReferences =
+		[
+			0 
+		]
+		ZStencilTargetReference = 19
+		BypassTargetReference = 12
+		ClearMode = 0
+		ParentNodeReferences =
+		[
+			1 
+		]
+		Bypass = 0
+	}
+	Node "3" =
+	{
+		Type = "Target"
+		NodeName = "Blurred 1/64"
+		ColorTargetReferences =
+		[
+			10 
+		]
+		MaterialReference = 8
+		ParentNodeReferences =
+		[
+			2 
+		]
+		ClearMode = 0
+	}
+	Node "4" =
+	{
+		Type = "Target"
+		NodeName = "Blurred 1/32"
+		ColorTargetReferences =
+		[
+			9 
+		]
+		MaterialReference = 7
+		ParentNodeReferences =
+		[
+			2 
+		]
+		ClearMode = 0
+	}
+	Node "5" =
+	{
+		Type = "Target"
+		NodeName = "Blurred 1/16"
+		ColorTargetReferences =
+		[
+			8 
+		]
+		MaterialReference = 6
+		ParentNodeReferences =
+		[
+			2 
+		]
+		ClearMode = 0
+	}
+	Node "6" =
+	{
+		Type = "Target"
+		NodeName = "Blurred 1/8"
+		ColorTargetReferences =
+		[
+			7 
+		]
+		MaterialReference = 5
+		ParentNodeReferences =
+		[
+			2 
+		]
+		ClearMode = 0
+	}
+	Node "7" =
+	{
+		Type = "Target"
+		NodeName = "Reduced To 1/64"
+		ColorTargetReferences =
+		[
+			6 
+		]
+		MaterialReference = 4
+		ParentNodeReferences =
+		[
+			3 
+		]
+		ClearMode = 0
+	}
+	Node "8" =
+	{
+		Type = "Target"
+		NodeName = "Reduced To 1/32"
+		ColorTargetReferences =
+		[
+			5 
+		]
+		MaterialReference = 3
+		ParentNodeReferences =
+		[
+			4 7 
+		]
+		ClearMode = 0
+	}
+	Node "9" =
+	{
+		Type = "Target"
+		NodeName = "Reduced To 1/16"
+		ColorTargetReferences =
+		[
+			4 
+		]
+		MaterialReference = 2
+		ParentNodeReferences =
+		[
+			5 8 
+		]
+		ClearMode = 0
+	}
+	Node "10" =
+	{
+		Type = "Target"
+		NodeName = "Reduced To 1/8"
+		ColorTargetReferences =
+		[
+			3 
+		]
+		MaterialReference = 1
+		ParentNodeReferences =
+		[
+			6 9 
+		]
+		ClearMode = 0
+	}
+	Node "11" =
+	{
+		Type = "Target"
+		NodeName = "Reduced To 1/4"
+		ColorTargetReferences =
+		[
+			2 
+		]
+		MaterialReference = 0
+		ParentNodeReferences =
+		[
+			10 
+		]
+		ClearMode = 0
+	}
+	Node "12" =
+	{
+		Type = "Target"
+		NodeName = "Volumetric Fog"
+		MaterialReference = 10
+		ColorTargetReferences =
+		[
+			14 
+		]
+		Bypass = 1
+		BypassTargetReference = 17
+		ParentNodeReferences =
+		[
+			11 
+		]
+	}
+	Node "13" =
+	{
+		Type = "Target"
+		NodeName = "Volumetric Fog Density Result"
+		ColorTargetReferences =
+		[
+			12 15 
+		]
+		ParentNodeReferences =
+		[
+			12 
+		]
+		ClearColor =
+		[
+			0.000000 0.000000 0.000000 0.000000
+		]
+	}
+	Node "14" =
+	{
+		Type = "Target"
+		NodeName = "Volumetric Fog Render Result"
+		ColorTargetReferences =
+		[
+			13 
+		]
+		ParentNodeReferences =
+		[
+			12 
+		]
+		ClearColor =
+		[
+			0.000000 0.000000 0.000000 0.000000
+		]
+		ZStencilTargetReference = 16
+	}
+	Node "15" =
+	{
+		Type = "ViewPort"
+		NodeName = "Volumetric Fog Density"
+		TechniqueOverride = "CalculateFogDensity"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			13 
+		]
+		SubGeometryListReference = 7
+	}
+	Node "16" =
+	{
+		Type = "ViewPort"
+		NodeName = "Volumetric Fog Render"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			14 
+		]
+		SubGeometryListReference = 7
+	}
+	Node "17" =
+	{
+		Type = "Target"
+		NodeName = "Display 0 Translucent"
+		MaterialReference = 12
+		ColorTargetReferences =
+		[
+			18 1
+		]
+		ParentNodeReferences =
+		[
+			12 13 
+		]
+		ZStencilTargetReference = 19
+		ClearMode = 0
+	}
+	Node "18" =
+	{
+		Type = "Target"
+		NodeName = "Display 0"
+		ColorTargetReferences =
+		[
+			11 
+		]
+		ParentNodeReferences =
+		[
+			17 
+		]
+		ZStencilTargetReference = 19
+		ClearColor =
+		[
+			0.000000 0.000000 0.000000 1.000000
+		]
+		ZPrePass = 0
+	}
+	Node "19" =
+	{
+		Type = "LitViewPort"
+		NodeName = "Opaque List"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			18 
+		]
+		SubGeometryListReference = 2
+		LightListReference = 0
+	}
+	Node "20" =
+	{
+		Type = "LitViewPort"
+		NodeName = "SkyDome List"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			18 
+		]
+		SubGeometryListReference = 1
+		LightListReference = 0
+	}
+	Node "21" =
+	{
+		Type = "LitViewPort"
+		NodeName = "Water"
+		ParentNodeReferences =
+		[
+			17 
+		]
+		CameraNodeReference = 24
+		SubGeometryListReference = 7
+		LightListReference = 0
+	}
+	Node "22" =
+	{
+		Type = "LitViewPort"
+		NodeName = "Translucent List"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			17 
+		]
+		SubGeometryListReference = 3
+		LightListReference = 0
+	}
+	Node "23" =
+	{
+		Type = "LitViewPort"
+		NodeName = "Draw Last List"
+		CameraNodeReference = 24
+		ParentNodeReferences =
+		[
+			17 
+		]
+		LightListReference = 0
+		SubGeometryListReference = 4
+	}
+	Node "24" =
+	{
+		Type = "Camera"
+		NodeName = "camera"
+		ParentNodeReferences =
+		[
+			19 21 
+		]
+	}
+	Node "25" =
+	{
+		Type = "VisibleSceneRoot"
+		NodeName = "Scene 0"
+		ParentNodeReferences =
+		[
+			15 16 19 20 21 22 23
+		]
+	}
+	Node "26" =
+	{
+		Type = "ViewPort"
+		NodeName = "FullScreenDistort Viewport"
+		ParentNodeReferences =
+		[
+			1 
+		]
+		SubGeometryListReference = 9
+		CameraNodeReference = 28
+	}
+	Node "27" =
+	{
+		Type = "VisibleSceneRoot"
+		NodeName = "FullScreenDistort Scene"
+		ParentNodeReferences =
+		[
+			26 
+		]
+	}
+	Node "28" =
+	{
+		Type = "Camera"
+		FarClipPlane = 1.000000
+		NearClipPlane = 0.000000
+		IsOrthographic = 1
+		OrthographicDimensions =
+		[
+			0 0 1 1
+		]
+		NodeName = "FullScreenDistort Camera"
+		ParentNodeReferences =
+		[
+			27 
+		]
+	}
+	Node "29" =
+	{
+		Type = "ViewPort"
+		NodeName = "HudViewport"
+		CameraNodeReference = 31
+		SubGeometryListReference = 8
+		ParentNodeReferences =
+		[
+			1 
+		]
+	}
+	Node "30" =
+	{
+		Type = "VisibleSceneRoot"
+		NodeName = "HudScene"
+		ParentNodeReferences =
+		[
+			29 
+		]
+	}
+	Node "31" =
+	{
+		Type = "Camera"
+		NodeName = "HudCamera"
+		IsOrthographic = 1
+		ParentNodeReferences =
+		[
+			29 
+		]
+		OrthographicDimensions =
+		[
+			0.000000 0.000000 640.000000 480.000000
+		]
+		NearClipPlane = -1.000000
+		FarClipPlane = 100.000000
+	}
+	Node "32" =
+	{
+		Type = "ViewPort"
+		NodeName = "Debug Hud Viewport"
+		CameraNodeReference = 34
+		SubGeometryListReference = 5
+		ParentNodeReferences =
+		[
+			0
+		]
+	}
+	Node "33" =
+	{
+		Type = "VisibleSceneRoot"
+		NodeName = "Debug Hud Scene"
+		LockChildArray = 64
+		ParentNodeReferences =
+		[
+			32 
+		]
+	}
+	Node "34" =
+	{
+		Type = "Camera"
+		NodeName = "Debug Hud Camera"
+		IsOrthographic = 1
+		ParentNodeReferences =
+		[
+			32 
+		]
+		OrthographicDimensions =
+		[
+			-50.000000 -100.000000 1360.000000 1020.000000
+		]
+		NearClipPlane = 1.000000
+		FarClipPlane = 1000.000000
+	}
+	Node "35" =
+	{
+		Type = "SpriteNode"
+		NodeName = "ClearZBuffer For DebugHud"
+		MaterialReference = 11
+		Depth = 1.000000
+		ParentNodeReferences =
+		[
+			1 
+		]
+	}
+	Node "36" =
+	{
+		Type = "ViewPort"
+		NodeName = "Debug Hud Viewport Persp"
+		CameraNodeReference = 38
+		SubGeometryListReference = 6
+		ParentNodeReferences =
+		[
+			1 
+		]
+	}
+	Node "37" =
+	{
+		Type = "VisibleSceneRoot"
+		NodeName = "Debug Hud Scene Persp"
+		ParentNodeReferences =
+		[
+			36 
+		]
+	}
+	Node "38" =
+	{
+		Type = "Camera"
+		NodeName = "Debug Hud Camera Persp"
+		ParentNodeReferences =
+		[
+			37 
+		]
+		NearClipPlane = 10.000000
+		FarClipPlane = 10000.000000
+	}
+}
+SceneCullerPool =
+{
+	SceneCuller "0" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 0
+		Comparison = 3
+	}
+	SceneCuller "1" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 0
+		Comparison = 5
+	}
+	SceneCuller "2" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 1
+		Comparison = 5
+	}
+	SceneCuller "3" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 1
+		Comparison = 1
+	}
+	SceneCuller "4" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 9
+		Comparison = 5
+	}
+	SceneCuller "5" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 10
+		Comparison = 3
+	}
+	SceneCuller "6" =
+	{
+		Type = "BucketSceneCuller"
+		Number = 12
+		Comparison = 5
+	}
+}
+SceneListPool =
+{
+	SceneList "0" =
+	{
+		NodeTypeFilter = "LightNode"
+		CameraNodeReference = 2
+		FirstSortCriteria = 0
+		SecondSortCriteria = 6
+		Enable = 1
+	}
+	SceneList "1" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 3
+		Enable = 1
+		SceneCullerRefereces =
+		[
+			0 
+		]
+	}
+	SceneList "2" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 3
+		SecondSortCriteria = 0
+		Enable = 1
+		SceneCullerRefereces =
+		[
+			1 
+		]
+	}
+	SceneList "3" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 1
+		SecondSortCriteria = 3
+		Enable = 1
+		SceneCullerRefereces =
+		[
+			2 
+		]
+	}
+	SceneList "4" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 3
+		Enable = 1
+		SceneCullerRefereces =
+		[
+			3 5 
+		]
+	}
+	SceneList "5" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 1
+		Enable = 1
+	}
+	SceneList "6" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 1
+		Enable = 1
+	}
+	SceneList "7" =
+	{
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 0
+		Enable = 1
+		SceneCullerRefereces =
+		[
+			6 
+		]
+	}
+	SceneList "8" =
+	{
+		Enable = 1
+		NodeTypeFilter = "SubGeometryNode"
+		FirstSortCriteria = 4
+		SecondSortCriteria = 3
+	}
+	SceneList "9" =
+	{
+		Enable = 1
+		FirstSortCriteria = 6
+		SecondSortCriteria = 6
+		NodeTypeFilter = "SubGeometryNode"
+	}
+}
+MaterialPool =
+{
+	Material "0" =
+	{
+		Effect = "Downsample4x4"
+	}
+	Material "1" =
+	{
+		Effect = "Downsample2x2"
+	}
+	Material "2" =
+	{
+		Effect = "Downsample2x2"
+	}
+	Material "3" =
+	{
+		Effect = "Downsample2x2"
+	}
+	Material "4" =
+	{
+		Effect = "Downsample2x2"
+	}
+	Material "5" =
+	{
+		Effect = "GaussBlur"
+	}
+	Material "6" =
+	{
+		Effect = "GaussBlur"
+	}
+	Material "7" =
+	{
+		Effect = "GaussBlur"
+	}
+	Material "8" =
+	{
+		Effect = "GaussBlur"
+	}
+	Material "9" =
+	{
+		Effect = "PostProcess"
+		UniqueID = "00000000000000000000000000000002"
+		PropertyEntries =
+		{
+			PropertyEntry "0" =
+			{
+				Name = "BLOOM_COMPOSITE_WEIGHTS"
+				Type = "Float"
+				DataType = 3
+				Value =
+				[
+					0.350000 0.110000 0.040000 0.020000
+				]
+			}
+			PropertyEntry "1" =
+			{
+				Name = "BLOOM_BRIGHT_PASS_FILTER"
+				Type = "Float"
+				DataType = 3
+				Value =
+				[
+					0.610000 0.610000 0.630000 0.770000
+				]
+			}
+			PropertyEntry "2" =
+			{
+				Name = "DOFParams"
+				Type = "Float"
+				DataType = 3
+				Value =
+				[
+					5.000000 1.000000 215.790000 0.380000
+				]
+			}
+		}
+		TextureEntries =
+		{
+			TextureEntry "0" =
+			{
+				Usage = "Blur_1_32"
+				TextureReference = 9
+			}
+			TextureEntry "1" =
+			{
+				Usage = "Blur_1_64"
+				TextureReference = 10
+			}
+			TextureEntry "2" =
+			{
+				Usage = "Blur_1_16"
+				TextureReference = 8
+			}
+			TextureEntry "3" =
+			{
+				Usage = "Blur_1_8"
+				TextureReference = 7
+			}
+			TextureEntry "4" =
+			{
+				Usage = "BackBuffer"
+				TextureReference = 18
+			}
+		}
+	}
+	Material "10" =
+	{
+		Effect = "VolumetricFog"
+		Technique = "Final"
+		UniqueID = "00000000000000000000000000000004"
+		PropertyEntries =
+		{
+			PropertyEntry "0" =
+			{
+				Name = "VolumeticFogColorAndDensity"
+				Type = "Float"
+				DataType = 3
+				Value =
+				[
+					1.000000 1.000000 5.000000 1.000000
+				]
+			}
+		}
+		TextureEntries =
+		{
+			TextureEntry "0" =
+			{
+				Usage = "densityMap_front"
+				TextureReference = 15
+			}
+			TextureEntry "1" =
+			{
+				Usage = "densityMap_back"
+				TextureReference = 12
+			}
+			TextureEntry "2" =
+			{
+				Usage = "backBufferMap"
+				TextureReference = 18
+			}
+			TextureEntry "3" =
+			{
+				Usage = "colorMap"
+				TextureReference = 13
+			}
+		}
+	}
+	Material "11" =
+	{
+		Effect = "ClearZBuffer"
+	}
+	Material "12" =
+	{
+		Effect = "geometryPostProcess"
+		UniqueID = "00000000000000000000000000000005"
+		TextureEntries =
+		{
+			TextureEntry "0" =
+			{
+				TextureReference = 11
+			}
+		}
+	}
+	Material "13" =
+	{
+		Effect = "PassThru"
+	}
+}
+TexturePool =
+{
+	Texture "0" =
+	{
+		Name = "PostProcess Result"
+		Width = 3840
+		Height = 2160
+		Format = 15
+		Presentable = 1
+	}
+	Texture "1" =
+	{
+		Name = "ZStencilBuffer"
+		Width = 3840
+		Height = 2160
+		Format = 43
+	}
+	Texture "2" =
+	{
+		Name = "BackBuffer 1/4"
+		Width = 320
+		Height = 180
+		Format = 7
+	}
+	Texture "3" =
+	{
+		Name = "BackBuffer 1/8"
+		Width = 160
+		Height = 90
+		Format = 7
+	}
+	Texture "4" =
+	{
+		Name = "BackBuffer 1/16"
+		Width = 80
+		Height = 45
+		Format = 7
+	}
+	Texture "5" =
+	{
+		Name = "BackBuffer 1/32"
+		Width = 40
+		Height = 22
+		Format = 7
+	}
+	Texture "6" =
+	{
+		Name = "BackBuffer 1/64"
+		Width = 16
+		Height = 16
+		Format = 7
+	}
+	Texture "7" =
+	{
+		Name = "BackBuffer 1/8 Blurred"
+		Width = 160
+		Height = 90
+		Format = 7
+	}
+	Texture "8" =
+	{
+		Name = "BackBuffer 1/16 Blurred"
+		Width = 80
+		Height = 45
+		Format = 7
+	}
+	Texture "9" =
+	{
+		Name = "BackBuffer 1/32 Blurred"
+		Width = 40
+		Height = 22
+		Format = 7
+	}
+	Texture "10" =
+	{
+		Name = "BackBuffer 1/64 Blurred"
+		Width = 16
+		Height = 16
+		Format = 7
+	}
+	Texture "11" =
+	{
+		Name = "BackBuffer"
+		Width = 3840
+		Height = 2160
+		Format = 15
+		Presentable = 1
+		Multisample = 0
+	}
+	Texture "12" =
+	{
+		Width = 3840
+		Height = 2160
+		Name = "Volumetric Fog Density Back"
+		Format = 40
+	}
+	Texture "13" =
+	{
+		Name = "Volumetric Fog Color"
+		Format = 7
+		Width = 320
+		Height = 180
+	}
+	Texture "14" =
+	{
+		Name = "Volumetric Fog Result"
+		Width = 3840
+		Height = 2160
+		Format = 15
+		Presentable = 1
+	}
+	Texture "15" =
+	{
+		Name = "Volumetric Fog Density Front"
+		Width = 3840
+		Height = 2160
+		Format = 40
+	}
+	Texture "16" =
+	{
+		Name = "Volumetric Fog DepthBuffer"
+		Format = 57
+		Width = 320
+		Height = 180
+	}
+	Texture "17" =
+	{
+		Name = "FullScreenDistort Result"
+		Presentable = 1
+		Width = 3840
+		Height = 2160
+		Format = 15
+		Presentable = 1
+	}
+	Texture "18" =
+	{
+		Name = "TransBackBuffer"
+		Width = 3840
+		Height = 2160
+		Format = 15
+		Presentable = 1
+		Multisample = 0
+	}
+	Texture "19" =
+	{
+		Name = "TransZStencilBuffer"
+		Width = 3840
+		Height = 2160
+		Format = 57
+	}
+}
